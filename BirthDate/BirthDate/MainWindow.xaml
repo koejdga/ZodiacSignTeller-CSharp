@@ -1,0 +1,53 @@
+﻿<Window x:Class="BirthDate.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BirthDate"
+        mc:Ignorable="d"
+        Title="Age Calculator" Height="450" Width="800" MinHeight="250" MinWidth="800">
+    
+    <Grid x:Name="Grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.Row="0" Grid.Column="0" Fill="AliceBlue" Grid.ColumnSpan="5"/>
+        <Rectangle Grid.Row="1" Grid.Column="0" Fill="Cornsilk" Grid.ColumnSpan="5"/>
+        <Rectangle Grid.Row="2" Grid.Column="0" Fill="AliceBlue" Grid.ColumnSpan="5"/>
+        <Rectangle Grid.Row="3" Grid.Column="0" Fill="Cornsilk" Grid.ColumnSpan="5"/>
+        <Rectangle Grid.Row="4" Grid.Column="0" Fill="AliceBlue" Grid.ColumnSpan="5"/>
+
+        <StackPanel Grid.Row="0" Grid.Column="2">
+            <TextBlock HorizontalAlignment="Center" FontSize="15">Enter your birth date</TextBlock>
+            <DatePicker HorizontalAlignment="Center" SelectedDate="{Binding BirthDate, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
+        </StackPanel>
+        <TextBlock Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" Text="{Binding InvalidInputText, Mode=OneWay}"></TextBlock>
+        
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+            <TextBlock FontSize="15" Text="Your age - "/>
+            <TextBlock FontSize="15" Text="{Binding Age, Mode=OneWay}"></TextBlock>
+        </StackPanel>
+
+        <TextBlock Grid.Row="2" Grid.Column="3" FontSize="15" Text="Your Western zodiac sign - "/>
+        <TextBlock Grid.Row="2" Grid.Column="4" FontSize="15" Text="{Binding WesternSign, Mode=OneWay}"></TextBlock>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" FontSize="15" Text="Your Chinese zodiac sign - " Margin="5,0,0,0"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" FontSize="15" Text="{Binding ChineseSign, Mode=OneWay}"></TextBlock>
+
+        <Image Grid.Row="4" Grid.Column="1" Source="{Binding CongratulationImage, Mode=OneWay}"/>
+        <TextBlock Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" Margin="10" FontSize="15" Text="{Binding Congratulation, Mode=OneWay}"></TextBlock>
+        <Image Grid.Row="4" Grid.Column="3" Source="{Binding CongratulationImage, Mode=OneWay}"></Image>
+    </Grid>
+</Window>
